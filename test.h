@@ -28,11 +28,11 @@ credits: korvo
 typedef struct {
     const char* name;
     const char* desc;
-    const char* (*ptr)();
+    const char* (*ptr)(void);
 } test_t;
 
 typedef struct {
-    const char* (*test_fn)();
+    const char* (*test_fn)(void);
     bool finished;
     double time_out;
     const char* fail_out;

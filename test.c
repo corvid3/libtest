@@ -1,19 +1,18 @@
-
 #include "test.h"
 
-const char* passing_test_function() {
+const char* passing_test_function(void) {
     return NULL;
 }
 
-const char* failing_test_function() {
+const char* failing_test_function(void) {
     return "this is a fail";
 }
 
-const char* default_fail_function() {
+const char* default_fail_function(void) {
     return TESTC_BASIC_ERR;
 }
 
-const char* long_function() {
+const char* long_function(void) {
     static const struct timespec timer = {.tv_sec = 5};
     nanosleep(&timer, NULL);
     return NULL;
@@ -43,7 +42,7 @@ static const test_t default_fail = {
     .desc = "",
 };
 
-extern int main() {
+extern int main(void) {
     const bool pass = execute_test(passing_test);
     const bool fail = execute_test(failing_test);
     execute_test(default_fail);
